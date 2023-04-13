@@ -17,6 +17,7 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"))
         }
     }
+    namespace = "com.luszczuk.makebillingeasy.core"
 
 }
 
