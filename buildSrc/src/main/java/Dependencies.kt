@@ -2,24 +2,25 @@ import org.gradle.api.JavaVersion
 
 object Config {
     const val minSdk = 24
-    const val compileSdk = 33
-    const val targetSdk = 33
-    const val buildTools = "33.0.0"
-    val javaVersion = JavaVersion.VERSION_1_8
+    const val compileSdk = 34
+    const val targetSdk = 34
+
+    const val javaVersionNumber = 17
+    val javaVersion = JavaVersion.VERSION_17
 }
 
 
 object Versions {
     const val junit = "4.13.2"
     const val mockk = "1.13.5"
-    const val kotlinVersion = "1.8.20"
+    const val kotlinVersion = "1.9.24"
     const val robolectric = "4.10"
     const val kluent = "1.72"
     const val dokka = "1.8.10"
-    const val dagger = "2.45"
-    const val coroutines = "1.6.4"
-    const val lifecycle = "2.6.1"
-    const val billingLib = "5.2.0"
+    const val dagger = "2.51.1"
+    const val coroutines = "1.8.0"
+    const val lifecycle = "2.7.0"
+    const val billingLib = "6.2.1"
 }
 
 object Libs {
@@ -47,6 +48,4 @@ object Libs {
     const val lifecycleProcess = "androidx.lifecycle:lifecycle-process:${Versions.lifecycle}"
     const val lifecycleRuntime = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycle}"
     const val lifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
-
-
 }

@@ -1,5 +1,6 @@
 import com.vanniktech.maven.publish.MavenPublishPluginExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension
+import java.util.Locale
 
 buildscript {
     repositories {
@@ -7,7 +8,7 @@ buildscript {
 
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:7.4.2")
+        classpath("com.android.tools.build:gradle:8.4.0-rc02")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlinVersion}")
         classpath("org.jetbrains.dokka:dokka-gradle-plugin:${Versions.dokka}")
         classpath("com.vanniktech:gradle-maven-publish-plugin:0.18.0")
@@ -35,7 +36,8 @@ tasks.named<com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask>("
     }
 
 fun isNonStable(version: String): Boolean {
-    val stableKeyword = listOf("RELEASE", "FINAL", "GA").any { version.toUpperCase().contains(it) }
+    val stableKeyword = listOf("RELEASE", "FINAL", "GA").any { version.uppercase(Locale.getDefault())
+        .contains(it) }
     val regex = "^[0-9,.v-]+(-r)?$".toRegex()
     val isStable = stableKeyword || regex.matches(version)
     return isStable.not()

@@ -5,15 +5,14 @@ plugins {
 }
 
 android {
-    buildToolsVersion = Config.buildTools
     compileSdk = Config.compileSdk
 
     defaultConfig {
         minSdk = Config.minSdk
         targetSdk = Config.targetSdk
         applicationId = "com.luszczuk.makebillingseasy.sample"
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "2.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -32,16 +31,31 @@ android {
         sourceCompatibility(Config.javaVersion)
         targetCompatibility(Config.javaVersion)
     }
+
+    kotlin {
+        jvmToolchain(Config.javaVersionNumber)
+    }
+
+    kotlinOptions {
+        jvmTarget = Config.javaVersionNumber.toString()
+    }
+
     namespace = "com.example.myapplication"
 }
 
 dependencies {
+    constraints {
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlinVersion}") {
+            because("kotlin-stdlib-jdk7 is now a part of kotlin-stdlib")
+        }
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlinVersion}") {
+            because("kotlin-stdlib-jdk8 is now a part of kotlin-stdlib")
+        }
+    }
 
-    implementation(Libs.kotlinStdLib)
-
-    implementation("androidx.activity:activity-ktx:1.7.0")
+    implementation("androidx.activity:activity-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("androidx.core:core-ktx:1.10.0")
+    implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
     implementation(Libs.billingLib)
