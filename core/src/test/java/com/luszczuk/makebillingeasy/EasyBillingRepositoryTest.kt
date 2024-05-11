@@ -216,7 +216,7 @@ class EasyBillingRepositoryTest {
 
             //then
             assertInstanceOf(
-                BillingException.ServiceTimeoutException::class.java,
+                BillingException.NetworkErrorException::class.java,
                 actualResult.exceptionOrNull()
             )
         }
