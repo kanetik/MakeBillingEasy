@@ -14,8 +14,6 @@ object Versions {
     const val junit = "4.13.2"
     const val mockk = "1.13.5"
     const val kotlinVersion = "1.9.24"
-    const val robolectric = "4.10"
-    const val kluent = "1.72"
     const val dokka = "1.8.10"
     const val dagger = "2.51.1"
     const val coroutines = "1.8.0"
@@ -24,15 +22,10 @@ object Versions {
 }
 
 object Libs {
-    const val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlinVersion}"
     const val billingLib = "com.android.billingclient:billing-ktx:${Versions.billingLib}"
 
     const val junit = "junit:junit:${Versions.junit}"
     const val mockk = "io.mockk:mockk:${Versions.mockk}"
-    const val robolectric = "org.robolectric:robolectric:${Versions.robolectric}"
-
-    const val kluent = "org.amshove.kluent:kluent:${Versions.kluent}"
-    const val kluentAndroid = "org.amshove.kluent:kluent-android:${Versions.kluent}"
 
     const val dagger = "com.google.dagger:dagger:${Versions.dagger}"
     const val daggerCompiler = "com.google.dagger:dagger-compiler:${Versions.dagger}"

@@ -8,7 +8,7 @@ buildscript {
 
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:8.4.0-rc02")
+        classpath("com.android.tools.build:gradle:8.4.0")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlinVersion}")
         classpath("org.jetbrains.dokka:dokka-gradle-plugin:${Versions.dokka}")
         classpath("com.vanniktech:gradle-maven-publish-plugin:0.18.0")
@@ -58,7 +58,7 @@ subprojects {
         apply(plugin = "org.jetbrains.dokka")
 
         tasks.withType<org.jetbrains.dokka.gradle.DokkaTask>().configureEach {
-            outputDirectory.set(buildDir.resolve("javadoc"))
+            outputDirectory.set(projectDir.resolve("build/javadoc"))
         }
 
         apply(plugin = "com.vanniktech.maven.publish")
@@ -85,7 +85,7 @@ subprojects {
 }
 
 tasks.register("clean", Delete::class) {
-    delete(rootProject.buildDir)
+    delete(projectDir.resolve("build"))
 }
 
 fun Project.androidLibrary(configure: com.android.build.gradle.LibraryExtension.() -> Unit) =
